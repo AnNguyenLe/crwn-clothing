@@ -5,13 +5,13 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import "./App.css";
-import { setCurrentUser } from "./redux/user/user.actions";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
-import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
-import { selectCurrentUser } from "./redux/user/user.selectors";
 import CheckoutPage from "./pages/checkout/checkout.component";
+import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import { setCurrentUser } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selectors";
 
 class App extends React.Component {
 	unsubscribeFromAuth = null;
@@ -28,6 +28,11 @@ class App extends React.Component {
 						...snapShot.data(),
 					});
 				});
+
+				// addCollectionAndDocuments(
+				// 	"collections",
+				// 	collectionsArray.map(({ title, items }) => ({ title, items }))
+				// );
 			} else setCurrentUser(userAuth);
 		});
 	}
